@@ -5,8 +5,9 @@
 [general]
 name=Select Themes
 qgisMinimumVersion=3.0
+qgisMaximumVersion=4.99
 description=Select one Theme out of the Toolbar
-version=3.0.1
+version=3.0.2
 author=gerd 3er geoplaning GmbH
 email=kontakt@geoplaning.de
 

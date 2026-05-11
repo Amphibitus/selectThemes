@@ -265,9 +265,24 @@ class selectThemes:
     def projComboThemesLoad(self):
         """Load diffrent Themes"""
         self.projComboThemes.clear()
-        themecount = QgsProject.instance().mapThemeCollection().mapThemes()
+      
+        mTC = QgsProject.instance().mapThemeCollection()
+        themecount = mTC.mapThemes()
+        
+        
+        root = QgsProject.instance().layerTreeRoot()
+        model = self.iface.layerTreeView().layerTreeModel()
+        goodTheme = mTC.createThemeFromCurrentState( root, model )
+
+        
         for setting in themecount:
             self.projComboThemes.addItem(setting)
+            
+            if mTC.mapThemeState(setting) == goodTheme:
+                self.projComboThemes.setCurrentText(setting)
+
+     
+                
 
 
 
